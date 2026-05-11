@@ -10,6 +10,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.annotation.security.RolesAllowed;
 
 import java.util.logging.Logger;
 
@@ -23,6 +24,7 @@ public class InquiryController {
 
   @POST
   @Path("/parse")
+  @RolesAllowed("Admin")
   @Consumes(MediaType.MULTIPART_FORM_DATA)
   @Produces(MediaType.APPLICATION_JSON)
   public Response parseTransactionData(ParseTransactionCSV parseTransactionCSV) {
